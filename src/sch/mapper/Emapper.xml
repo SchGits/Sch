@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sch.mapper.Emapper">
+
+
+	<select id="Eall" resultType="employee">
+		select * from workhistory,employee where employee.eno=workhistory.eno
+	</select>
+	
+	<select id="DD" resultType="employee" parameterType="integer">
+		select * from workhistory,employee where employee.eno=workhistory.eno and eno =#{value}
+	</select>
+
+
+		<insert id="QQ" parameterType="WorkHistory">
+			insert into WorkHistory values(#{hId},#{changeDate},#{result},#{deptName},#{jobType},#{eno})
+		</insert>
+
+
+
+</mapper>
